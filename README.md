@@ -1,13 +1,22 @@
-# Bun SSG
+# Doc SSG: Empathy unifies stories _and_ systems.
 
-This is a static site generator built with Bun. It converts Markdown files to HTML and applies templates for consistent styling.
+## What is doc?
+
+Doc = MarkDown + DiY Pico (CSS) templates make static HTML output that scales
+
+Doc is a static site generator built in Bun (JSCore, Rust, Zig).
+
+NodeJS and Deno have their Monty Python moment:
+
+### And Now For Something Completely Different
+
+See [bun.sh](https://bun.sh/) for more.
 
 ## Features
 
-- Converts Markdown to HTML
-- Supports GitHub-flavored Markdown
-- Generates HTML from templates
-- Pico.css styling
+- Markdown to HTML
+- GitHub-flavored Markdown
+- DiY Pico.css templates
 - Automated tests
 
 ## Getting Started
@@ -16,9 +25,11 @@ This is a static site generator built with Bun. It converts Markdown files to HT
 
 - [Bun](https://bun.sh/)
 
+Because docker and k8s love one-and-done binaries sans DLL hell.
+
 ### Installation
 
-1. Clone the repository:
+1. Clone the repo:
     ```sh
     git clone https://github.com/davidthewatson/doc.git
     cd doc
@@ -47,14 +58,12 @@ This is a static site generator built with Bun. It converts Markdown files to HT
     ```sh
     bun run tests/runTests.js
     ```
-
 <!--
 ### Contributing
 
 Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more information.
 
 -->
-
 ### License
 
 This project is licensed under the BSD 3-clause License - see the [LICENSE](LICENSE) file for details.
