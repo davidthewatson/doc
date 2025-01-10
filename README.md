@@ -73,13 +73,8 @@ Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTIN
 ## Future now
 
 1. Tests return short output
-    1.1 using green means pass, red means fail, yellow means warning scheme
-    1.2 log most things
-    1.5 Git PR
 2. Refactor js to ts
-    2.5 Git PR
 3. Refactor style
-    3.5 Git PR
 4. Done for now.
 
 ### License
