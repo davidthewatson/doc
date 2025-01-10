@@ -1,31 +1,36 @@
-# Doc SSG: Empathy unifies stories _and_ systems.
+# Doc: A Bun-based SSG
 
-## What is doc?
+## What?
 
-Doc = MarkDown + DiY Pico (CSS) templates make static HTML output that scales
+Doc is an SSG that takes MD input and renders HTML output. 
 
-Doc is a static site generator built in Bun (JSCore, Rust, Zig).
+1. Github Flavored MarkDown (GFM)
+2. Jinja lite structure (includes)
+3. Pico (CSS) style
 
-NodeJS and Deno have their Monty Python moment:
+## When?
 
-### And Now For Something Completely Different
+Started January 2025
 
-See [bun.sh](https://bun.sh/) for more.
+## Why?
 
-## Features
+1. My Python Static Jinja code was crufty, slow, legacy.
+2. Latency is the Mother of invention.
+3. Bun is fun!
 
-- Markdown to HTML
-- GitHub-flavored Markdown
-- DiY Pico.css templates
-- Automated tests
+## How
+
+1. [bun.sh](https://bun.sh/)
+2. GitHub-flavored Markdown
+3. Jinja lite (includes) for structure
+4. Pico Cascading Style Sheets (CSS) for style
+5. Automated tests for sanity
 
 ## Getting Started
 
 ### Prerequisites
 
 - [Bun](https://bun.sh/)
-
-Because docker and k8s love one-and-done binaries sans DLL hell.
 
 ### Installation
 
@@ -41,7 +46,7 @@ Because docker and k8s love one-and-done binaries sans DLL hell.
     ```
 
 ### Usage
-0. Setup .env file for your site:
+1. Setup .env file for your site:
     ```cat .env 
     export SITEROOT=~/github/davidthewatson.github.io
     export SRC=$SITEROOT/src
@@ -49,12 +54,12 @@ Because docker and k8s love one-and-done binaries sans DLL hell.
     export DOCS=$SITEROOT/docs
     source .env
     ````
-1. Run the build script:
+2. Run the build script:
     ```sh
     bun run build
     ```
 
-2. Run the tests:
+3. Run the tests:
     ```sh
     bun run tests/runTests.js
     ```
@@ -64,6 +69,19 @@ Because docker and k8s love one-and-done binaries sans DLL hell.
 Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more information.
 
 -->
+
+## Future now
+
+1. Tests return short output
+    1.1 using green means pass, red means fail, yellow means warning scheme
+    1.2 log most things
+    1.5 Git PR
+2. Refactor js to ts
+    2.5 Git PR
+3. Refactor style
+    3.5 Git PR
+4. Done for now.
+
 ### License
 
 This project is licensed under the BSD 3-clause License - see the [LICENSE](LICENSE) file for details.
