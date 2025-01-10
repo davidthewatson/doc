@@ -9,19 +9,27 @@ import nunjucks from 'nunjucks';
 // Load environment variables from .env file
 config();
 
+// Define environment variables type
+interface EnvVariables {
+  SITEROOT: string;
+  SRC: string;
+  STATIC: string;
+  DOCS: string;
+}
+
 // Get paths from environment variables
-const { SITEROOT, SRC, STATIC, DOCS } = process.env;
+const { SITEROOT, SRC, STATIC, DOCS } = process.env as EnvVariables;
 
 // Configure nunjucks
 nunjucks.configure(join(SITEROOT, 'templates'), { autoescape: true });
 
 // Function to get all Markdown files in a directory
-const getMarkdownFiles = (dir) => {
+const getMarkdownFiles = (dir: string): string[] => {
   return glob.sync(join(dir, '**/*.md'));
 };
 
 // Function to convert Markdown to HTML and render with template
-const convertMarkdownToHtml = (filePath) => {
+const convertMarkdownToHtml = (filePath: string) => {
   console.log(`Processing: ${filePath}`);
   const markdown = readFileSync(filePath, 'utf-8');
   const post_content_html = marked(markdown);
@@ -36,7 +44,7 @@ const convertMarkdownToHtml = (filePath) => {
 
   // Create the output subdirectory if it doesn't exist
   const outputDir = dirname(outputFilePath);
-  if (!existsSync(outputDir)){
+  if (!existsSync(outputDir)) {
     console.log(`Creating output directory: ${outputDir}`);
     mkdirSync(outputDir, { recursive: true });
   }
@@ -45,9 +53,9 @@ const convertMarkdownToHtml = (filePath) => {
 };
 
 // Create the output directory if it doesn't exist
-if (!existsSync(DOCS)){
-    console.log(`Creating output directory: ${DOCS}`);
-    mkdirSync(DOCS, { recursive: true });
+if (!existsSync(DOCS)) {
+  console.log(`Creating output directory: ${DOCS}`);
+  mkdirSync(DOCS, { recursive: true });
 }
 
 // Process all Markdown files in the source directory
@@ -55,3 +63,4 @@ const markdownFiles = getMarkdownFiles(SRC);
 markdownFiles.forEach(convertMarkdownToHtml);
 
 console.log('Markdown files have been converted to HTML.');
+
