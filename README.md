@@ -12,7 +12,9 @@ using:
 
 ## When?
 
-In mind, 5 years. Code complete January 2025.
+From the imaginary to the symbolic, 5 years. 
+
+To the traumatic and unknowable real, or code complete: January 2025.
 
 ## Why?
 
