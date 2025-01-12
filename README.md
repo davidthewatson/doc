@@ -1,30 +1,31 @@
-# Doc: A Bun-based SSG
+# Doc: An SSG on [bun](https://bun.sh/)
 
 ## What?
 
-Doc is an SSG that takes MD input and renders HTML output. 
+A Static Site Generator constructs markup from markdown.
+
+using:
 
 1. Github Flavored MarkDown (GFM)
-2. Jinja lite structure (includes)
+2. Jinja (lite) structure (includes) 
 3. Pico (CSS) style
 
 ## When?
 
-Started January 2025
+In mind, 5 years. Code complete January 2025.
 
 ## Why?
 
 1. My Python Static Jinja code was crufty, slow, legacy.
-2. Latency is the Mother of invention.
-3. Bun is fun!
+2. Latency is invention's mother and evil's root.
+3. Bun is fun! Efficiency, Utility, and Value FTW!
 
 ## How
 
-1. [bun.sh](https://bun.sh/)
+1. Did I say [bun](https://bun.sh/)
 2. GitHub-flavored Markdown
 3. Jinja lite (includes) for structure
 4. Pico Cascading Style Sheets (CSS) for style
-5. Automated tests for sanity
 
 ## Getting Started
 
@@ -59,23 +60,12 @@ Started January 2025
     bun run build
     ```
 
-3. Run the tests:
-    ```sh
-    bun run tests/runTests.js
-    ```
 <!--
 ### Contributing
 
 Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more information.
 
 -->
-
-## Future now
-
-1. Tests return short output
-2. Refactor js to ts
-3. Refactor style
-4. Done for now.
 
 ### License
 
