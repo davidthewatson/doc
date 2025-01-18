@@ -79,13 +79,23 @@ fetchAndAnalyze(url)
       colWidths: [20, 60],
     });
 
-    table.push(
-      [chalk.blueBright('Reading Ease'), chalk.green(result.readingEase.toFixed(2))],
-      [chalk.blueBright('Ease Description'), chalk.yellow(result.easeDescription)],
-      [chalk.blueBright('Grade Level'), chalk.green(result.gradeLevel.toFixed(2))],
-      [chalk.blueBright('Level Description'), chalk.magenta(result.schoolLevel)]
-    );
+    // table.push(
+    //   [chalk.blueBright('Reading Ease'), chalk.green(result.readingEase.toFixed(2))],
+    //   [chalk.blueBright('Ease Description'), chalk.yellow(result.easeDescription)],
+    //   [chalk.blueBright('Grade Level'), chalk.green(result.gradeLevel.toFixed(2))],
+    //   [chalk.blueBright('Level Description'), chalk.magenta(result.schoolLevel)]
+    // );
 
+    table.push(
+      [chalk.blueBright('Reading Ease'), 
+        chalk.blueBright('Ease Description'), 
+        chalk.blueBright('Grade Level'), 
+        chalk.blueBright('Level Description')],
+       [chalk.green(result.readingEase.toFixed(2)),
+        chalk.yellow(result.easeDescription),
+        chalk.green(result.gradeLevel.toFixed(2)),
+        chalk.magenta(result.schoolLevel)]  
+    );
     console.log(table.toString());
   })
   .catch((error) => {
