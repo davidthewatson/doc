@@ -27,15 +27,35 @@ function computeFleschKincaidMetrics(text: string) {
   return { readingEase, gradeLevel };
 }
 
+// const ranges = [
+//   { min: 90, max: 100, easeDescription: 'Very easy to read. Easily understood by an average 11-year-old student.', schoolLevel: '5th grade' },
+//   { min: 80, max: 89, easeDescription: 'Easy to read. Conversational English for consumers.', schoolLevel: '6th grade' },
+//   { min: 70, max: 79, easeDescription: 'Fairly easy to read.', schoolLevel: '7th grade' },
+//   { min: 60, max: 69, easeDescription: 'Plain English. Easily understood by 13- to 15-year-old students.', schoolLevel: '8th & 9th grade' },
+//   { min: 50, max: 59, easeDescription: 'Fairly difficult to read.', schoolLevel: '10th to 12th grade' },
+//   { min: 30, max: 49, easeDescription: 'Difficult to read.', schoolLevel: 'College' },
+//   { min: 0, max: 29, easeDescription: 'Very difficult to read. Best understood by university graduates.', schoolLevel: 'College graduate' },
+// ];
+
 const ranges = [
   { min: 90, max: 100, easeDescription: 'Very easy to read. Easily understood by an average 11-year-old student.', schoolLevel: '5th grade' },
-  { min: 80, max: 89, easeDescription: 'Easy to read. Conversational English for consumers.', schoolLevel: '6th grade' },
-  { min: 70, max: 79, easeDescription: 'Fairly easy to read.', schoolLevel: '7th grade' },
-  { min: 60, max: 69, easeDescription: 'Plain English. Easily understood by 13- to 15-year-old students.', schoolLevel: '8th & 9th grade' },
-  { min: 50, max: 59, easeDescription: 'Fairly difficult to read.', schoolLevel: '10th to 12th grade' },
-  { min: 30, max: 49, easeDescription: 'Difficult to read.', schoolLevel: 'College' },
-  { min: 0, max: 29, easeDescription: 'Very difficult to read. Best understood by university graduates.', schoolLevel: 'College graduate' },
+  { min: 80, max: 89.999999, easeDescription: 'Easy to read. Conversational English for consumers.', schoolLevel: '6th grade' },
+  { min: 70, max: 79.999999, easeDescription: 'Fairly easy to read.', schoolLevel: '7th grade' },
+  { min: 60, max: 69.999999, easeDescription: 'Plain English. Easily understood by 13- to 15-year-old students.', schoolLevel: '8th & 9th grade' },
+  { min: 50, max: 59.999999, easeDescription: 'Fairly difficult to read.', schoolLevel: '10th to 12th grade' },
+  { min: 30, max: 49.999999, easeDescription: 'Difficult to read.', schoolLevel: 'College' },
+  { min: 0, max: 29.999999, easeDescription: 'Very difficult to read. Best understood by university graduates.', schoolLevel: 'College graduate' },
 ];
+
+function classifyReadability(score: number): { easeDescription: string; schoolLevel: string } | null {
+  for (const range of ranges) {
+    if (score >= range.min && score <= range.max) {
+      return { easeDescription: range.easeDescription, schoolLevel: range.schoolLevel };
+    }
+  }
+  return null; // Return null if the score doesn't fall within any range
+}
+
 
 function getRangeInfo(readingEase: number) {
   return ranges.find((range) => readingEase >= range.min && readingEase <= range.max);
@@ -101,3 +121,23 @@ fetchAndAnalyze(url)
   .catch((error) => {
     console.error(chalk.red(`Error: ${error.message}`));
   });
+
+function classifyReadability(score: number): { easeDescription: string; schoolLevel: string } | null {
+  for (const range of ranges) {
+    if (score >= range.min && score <= range.max) {
+      return { easeDescription: range.easeDescription, schoolLevel: range.schoolLevel };
+    }
+  }
+  return null; // Return null if the score doesn't fall within any range
+}
+
+// Example usage
+// const readabilityScore = 68.5;
+// const classification = classifyReadability(readabilityScore);
+// if (classification) {
+//   console.log(`Score: ${readabilityScore}`);
+//   console.log(`Description: ${classification.easeDescription}`);
+//   console.log(`School Level: ${classification.schoolLevel}`);
+// } else {
+//   console.log('Score does not fall within any range.');
+// }
